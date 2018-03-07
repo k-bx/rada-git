@@ -4,6 +4,8 @@
 
 ## How to build and launch
 
+Install https://haskellstack.org/ . Then:
+
 ```
 cd rada-git
 stack build
