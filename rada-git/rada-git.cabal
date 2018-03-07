@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 047a1acc7daeef63d1874ef708cc9049618637119af7345fdbd41928aca1a65b
+-- hash: ee80da3d7b1dcc5b4436a4af10cc0ae6babb163f72b6d88d53a681248f83b804
 
 name:           rada-git
 version:        0.1.0.0
@@ -25,9 +25,14 @@ executable rada-git
       src
   ghc-options: -Wall -Werror
   build-depends:
-      base >=4.7 && <5
+      aeson
+    , base >=4.7 && <5
+    , bytestring
     , interpolatedstring-perl6
     , optparse-applicative
+    , text
   other-modules:
+      RadaGit.Config
+      RadaGit.Projects
       Paths_rada_git
   default-language: Haskell2010

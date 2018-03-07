@@ -12,9 +12,12 @@ extra-source-files:
 - README.md
 
 dependencies:
+  - aeson
   - base >= 4.7 && < 5
-  - optparse-applicative
+  - bytestring
   - interpolatedstring-perl6
+  - optparse-applicative
+  - text
 
 executables:
   rada-git:
