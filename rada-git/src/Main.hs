@@ -6,19 +6,22 @@ import Data.Semigroup
 import Options.Applicative
 import RadaGit.Config
 import RadaGit.Projects (downloadProjects)
+import RadaGit.Tests (runTests)
 import Text.InterpolatedString.Perl6 (q)
 
-data Commands =
-  DownloadProjects
+data Commands
+  = DownloadProjects
+  | Test
 
 commands :: Parser Commands
 commands =
   subparser
-    (command
-       "download-projects"
-       (info
-          (pure DownloadProjects)
-          (progDesc "Завантажити свіжі законопроекти")))
+    ((command
+        "download-projects"
+        (info
+           (pure DownloadProjects)
+           (progDesc "Завантажити свіжі законопроекти"))) <>
+     (command "test" (info (pure Test) (progDesc "Виконати автоматичні тести"))))
 
 main :: IO ()
 main = do
@@ -40,3 +43,4 @@ headerText =
 
 mainProg :: Config -> Commands -> IO ()
 mainProg cfg DownloadProjects = downloadProjects cfg
+mainProg _cfg Test = runTests

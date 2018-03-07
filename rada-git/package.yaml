@@ -18,6 +18,8 @@ dependencies:
   - interpolatedstring-perl6
   - optparse-applicative
   - text
+  - QuickCheck
+  - hspec
 
 executables:
   rada-git:

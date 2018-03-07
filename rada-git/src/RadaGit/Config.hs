@@ -1,22 +1,31 @@
 {-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveAnyClass #-}
+{-# LANGUAGE OverloadedStrings #-}
 
 module RadaGit.Config where
 
-import Data.Aeson (FromJSON)
+import Data.Aeson (FromJSON, ToJSON)
 import qualified Data.Aeson as J
 import qualified Data.ByteString.Lazy as BL
 import Data.Text (Text)
 import GHC.Generics (Generic)
+import Test.QuickCheck (Arbitrary(..))
 
 jsonOpts :: J.Options
 jsonOpts = J.defaultOptions {J.fieldLabelModifier = J.camelTo2 '_'}
 
 data Config = Config
   { projectsRssUrl :: Text
-  } deriving (Show, Generic)
+  } deriving (Eq, Show, Generic)
+
+instance Arbitrary Config where
+  arbitrary = Config <$> pure "http://someurl.com/rss.xml"
 
 instance FromJSON Config where
   parseJSON = J.genericParseJSON jsonOpts
+
+instance ToJSON Config where
+  toJSON = J.genericToJSON jsonOpts
 
 readConfig :: FilePath -> IO Config
 readConfig path = do
