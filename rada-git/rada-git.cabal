@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: d0e3c8a28d75e14cc3fc2f416c824faf8ff0616acd4cc74e391e339444ba1192
+-- hash: 311b0b3917a382f758c3699ce4c9e7f46cb59923815d2f3263ff48264977e26c
 
 name:           rada-git
 version:        0.1.0.0
@@ -29,12 +29,30 @@ executable rada-git
     , aeson
     , base >=4.7 && <5
     , bytestring
+    , data-default
+    , directory
+    , exceptions
+    , feed
+    , groom
     , hspec
+    , http-client
+    , http-types
     , interpolatedstring-perl6
+    , lens
+    , network-uri
+    , network-uri-json
     , optparse-applicative
+    , path
+    , path-io
+    , string-class
     , text
+    , wreq
+    , xml-conduit
+    , xml-types
   other-modules:
+      RadaGit.Cache
       RadaGit.Config
+      RadaGit.Import
       RadaGit.Projects
       RadaGit.Tests
       Paths_rada_git

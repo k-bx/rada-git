@@ -12,14 +12,30 @@ extra-source-files:
 - README.md
 
 dependencies:
+  - QuickCheck
   - aeson
   - base >= 4.7 && < 5
   - bytestring
-  - interpolatedstring-perl6
-  - optparse-applicative
-  - text
-  - QuickCheck
+  - data-default
+  - directory
+  - exceptions
+  - feed
+  - groom
   - hspec
+  - http-client
+  - http-types
+  - interpolatedstring-perl6
+  - lens
+  - network-uri
+  - network-uri-json
+  - optparse-applicative
+  - path
+  - path-io
+  - string-class
+  - text
+  - xml-conduit
+  - xml-types
+  - wreq
 
 executables:
   rada-git:
