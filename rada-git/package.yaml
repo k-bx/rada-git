@@ -10,6 +10,11 @@ copyright:           All Rights Reserved
 category:            Unclassified
 extra-source-files:
 - README.md
+default-extensions:
+- DeriveGeneric
+- OverloadedStrings
+- RecordWildCards
+- TypeApplications
 
 dependencies:
   - QuickCheck
@@ -32,6 +37,8 @@ dependencies:
   - optparse-applicative
   - path
   - path-io
+  - safe
+  - scalpel-core
   - string-class
   - text
   - xml-conduit
@@ -40,6 +47,6 @@ dependencies:
 
 executables:
   rada-git:
-    ghc-options: -Wall -Werror
+    ghc-options: -Wall
     source-dirs:      src
     main:             Main.hs

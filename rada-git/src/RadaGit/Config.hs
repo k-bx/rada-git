@@ -1,6 +1,3 @@
-{-# LANGUAGE DeriveGeneric #-}
-{-# LANGUAGE OverloadedStrings #-}
-
 module RadaGit.Config where
 
 import Data.Aeson (FromJSON, ToJSON)

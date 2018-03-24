@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 7a308d8d96146cd2099f3d78c7ef6c6dd60bbf9ca0d01e74682ef8b582571b5e
+-- hash: 37c856c78682da98f8fb2fdbb141f8a6b4ae39bbc827ef150241e9ea0bca9179
 
 name:           rada-git
 version:        0.1.0.0
@@ -23,7 +23,8 @@ executable rada-git
   main-is: Main.hs
   hs-source-dirs:
       src
-  ghc-options: -Wall -Werror
+  default-extensions: DeriveGeneric OverloadedStrings RecordWildCards TypeApplications
+  ghc-options: -Wall
   build-depends:
       QuickCheck
     , aeson
@@ -45,6 +46,8 @@ executable rada-git
     , optparse-applicative
     , path
     , path-io
+    , safe
+    , scalpel-core
     , string-class
     , text
     , wreq

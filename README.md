@@ -9,5 +9,10 @@ Install https://haskellstack.org/ . Then:
 ```
 cd rada-git
 stack build
+```
+
+Take a look at [[rada-git/config.json]], if it looks good -- you can launch the project:
+
+```
 stack exec rada-git -- --help
 ```

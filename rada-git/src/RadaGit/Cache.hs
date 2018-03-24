@@ -1,7 +1,5 @@
 -- | Filesystem-based (or other) cache interface. We want to be very
 -- careful with the Goverment and query it as few times as possible
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards #-}
 
 module RadaGit.Cache where
 
@@ -51,4 +49,4 @@ putURLToCache FsCache {..} uri bs = do
 uriToCache :: MonadThrow m => URI -> m (Path Rel File)
 uriToCache =
   parseRelFile .
-  T.unpack . T.replace "/" "__" . T.replace "?" "--" . T.pack . show
+  T.unpack . T.replace "/" "__" . T.pack . show
