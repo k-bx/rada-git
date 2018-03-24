@@ -34,8 +34,18 @@ getURLFromCache FsCache {..} uri = do
   let p = cachePath </> u
   e <- doesFileExist p
   case e of
-    True -> Just <$> BL.readFile (toFilePath p)
-    False -> return Nothing
+    True -> do
+      putStrLn $ "Returning a cached file: " ++ show p
+      Just <$> BL.readFile (toFilePath p)
+    False -> do
+      putStrLn $ "File not found in cache: " ++ show p
+      return Nothing
+
+putURLToCache :: FsCache -> URI -> BL.ByteString -> IO ()
+putURLToCache FsCache {..} uri bs = do
+  u <- uriToCache uri
+  let p = cachePath </> u
+  BL.writeFile (toFilePath p) bs
 
 -- TODO: test that uriToFilename . filenameToUri == id
 uriToCache :: MonadThrow m => URI -> m (Path Rel File)
