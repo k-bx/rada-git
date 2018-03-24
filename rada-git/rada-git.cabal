@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 311b0b3917a382f758c3699ce4c9e7f46cb59923815d2f3263ff48264977e26c
+-- hash: 7a308d8d96146cd2099f3d78c7ef6c6dd60bbf9ca0d01e74682ef8b582571b5e
 
 name:           rada-git
 version:        0.1.0.0
@@ -37,6 +37,7 @@ executable rada-git
     , hspec
     , http-client
     , http-types
+    , iconv
     , interpolatedstring-perl6
     , lens
     , network-uri

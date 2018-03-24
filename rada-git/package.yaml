@@ -24,6 +24,7 @@ dependencies:
   - hspec
   - http-client
   - http-types
+  - iconv
   - interpolatedstring-perl6
   - lens
   - network-uri

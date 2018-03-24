@@ -15,6 +15,7 @@ import RadaGit.Import
 import Text.Groom
 import Text.RSS.Import
 import qualified Text.XML as XML
+import Codec.Text.IConv
 
 -- TODO: add retry logic
 getWithRetryCaching :: FsCache -> W.Options -> URI -> IO BL.ByteString
@@ -37,7 +38,7 @@ downloadProjects Config {..} = do
   fscache <- initCache fsCache
   -- TODO: have wiser invalidation
   rssLBS <- getWithRetryCaching fscache opts projectsRssUrl
-  let doc = XML.toXMLDocument (XML.parseLBS_ def rssLBS)
+  let doc = XML.toXMLDocument (XML.parseLBS_ def (convert "CP1251" "UTF-8" rssLBS))
   let (Just rss) = elementToRSS (documentRoot doc)
   putStrLn $ groom $ rss
   return ()
